@@ -8,10 +8,69 @@ Git usage
 
 **Security**
 
+**Ed25519 Keys**: Many modern systems and guidelines recommend using Ed25519 keys where possible. Ed25519 is a modern elliptic curve algorithm that offers better security, efficiency, and faster performance than older algorithms like RSA. Additionally, Ed25519 keys have a fixed size (256 bits) which simplifies their handling.\
+\
+Source: _(Sensitivity level: CU) GPT@EC AI generated content – please use with caution._
+
 [**https://www.howtogeek.com/devops/how-to-set-up-https-personal-access-tokens-for-github-authentication/**](https://www.howtogeek.com/devops/how-to-set-up-https-personal-access-tokens-for-github-authentication/)
 
-You can generate a key with this command:\
-`$ ssh-keygen -b 4096 -t rsa -f /home/ec2-user/.ssh/id_rsa`
+You can generate a key with this command:
+
+```shell
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+
+
+To check if your SSH key has been added to the `ssh-agent`, you can use the following steps:
+
+1.  **Ensure `ssh-agent` is Running**: First, make sure that the `ssh-agent` is running. You can start it by running:
+
+    ```bash
+    eval "$(ssh-agent -s)"
+    ```
+
+    This command initializes the `ssh-agent` and sets the environment variables for your shell session.
+2.  **List the SSH Keys Managed by `ssh-agent`**: To see which keys are currently added to the `ssh-agent`, use the following command:
+
+    ```bash
+    ssh-add -l
+    ```
+
+    This will list the fingerprints of the keys that are currently added to the `ssh-agent`. If your key is listed there, then it has been added successfully.
+3.  **If No Keys Are Listed**: If you don't see any keys listed, or if your specific key is not listed, you may need to add your key to the `ssh-agent` by running:
+
+    ```bash
+    ssh-add ~/.ssh/id_ed25519
+    ```
+
+By following these steps, you can verify whether your SSH key is added to the `ssh-agent` and take action if it's not listed.
+
+Source: Adapted from (Sensitivity level: CU) GPT@EC AI generated content – please use with caution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 On the remote system, add the contents of your public key file (for example, `~/id_rsa.pub`) to a new line in your `~/.ssh/authorized_keys` file; on the command line, enter:\
 `$ cat` /home/ec2-user/.ssh/id\_rsa.pub. `>> ~/.ssh/authorized_keys`
