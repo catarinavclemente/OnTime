@@ -1,5 +1,9 @@
 # GIT
 
+## Git Forks and Upstreams: How-to and a cool tip
+
+[https://www.atlassian.com/git/tutorials/git-forks-and-upstreams](https://www.atlassian.com/git/tutorials/git-forks-and-upstreams)
+
 Git usage
 
 **Security**
@@ -73,7 +77,7 @@ Sources: [https://www.atlassian.com/continuous-delivery/continuous-integration/t
 
 If we don't want to use the auto-merge we can proceed as the usual way, so **from our fork 's \<branch\_name> against reference's master branch.**
 
-![](../../.gitbook/assets/image2020-8-13\_15-57-34.png)
+![](../../.gitbook/assets/image2020-8-13_15-57-34.png)
 
 **PS:** Once the pipeline have green lines, we need to **contact QA Team and request a code review** before lead ACC. If we pass this code review QA directly merge our PR into master and a new drone execution will be triggered to deploy in ACC.
 
@@ -81,7 +85,7 @@ If we don't want to use the auto-merge we can proceed as the usual way, so **fro
 
 We can use this functionality naming our fork's branch **"deploy",** so in order to trigger a new drone we need to open a **new PR from our fork's deploy branch against reference's master branch** as following:
 
-![](../../.gitbook/assets/image2020-8-13\_15-37-0.png)
+![](../../.gitbook/assets/image2020-8-13_15-37-0.png)
 
 Keep in mind that you can go straight to ACC but a QA review will be needed before lead PROD (unless you are hosted in a dedicated server, then deploy into PROD is under your own risk).\
 Source: [https://webgate.ec.europa.eu/fpfis/wikis/x/4YZMQ](https://webgate.ec.europa.eu/fpfis/wikis/x/4YZMQ)
