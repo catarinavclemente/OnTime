@@ -17,10 +17,8 @@ Source: _(Sensitivity level: CU) GPT@EC AI generated content – please use with
 You can generate a key with this command:
 
 ```shell
-ssh-keygen -t ed25519 -C "your_email@example.com"
+ssh-keygen -t ed25519 -C "some_identifiable_name_that you_can_share_like_a_username"
 ```
-
-
 
 To check if your SSH key has been added to the `ssh-agent`, you can use the following steps:
 
@@ -48,42 +46,28 @@ By following these steps, you can verify whether your SSH key is added to the `s
 
 Source: Adapted from (Sensitivity level: CU) GPT@EC AI generated content – please use with caution.
 
+### [SSH commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification) <a href="#ssh-commit-signature-verification" id="ssh-commit-signature-verification"></a>
 
+You can use SSH to sign commits with an SSH key that you generate yourself. For more information, see the [Git reference documentation](https://git-scm.com/docs/git-config#Documentation/git-config.txt-usersigningKey) for `user.Signingkey`. If you already use an SSH key to authenticate with GitHub, you can also upload that same key again for use as a signing key. There's no limit on the number of signing keys you can add to your account.
 
+GitHub uses [ssh\_data](https://github.com/github/ssh_data), an open source Ruby library, to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on GitHub.com.
 
+Note
 
+SSH signature verification is available in Git 2.34 or later. To update your version of Git, see the [Git](https://git-scm.com/downloads) website.
 
+To sign commits using SSH and have those commits verified on GitHub, follow these steps:
 
+1. [Check for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+2. [Generate a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+3. [Add a SSH signing key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+4. [Tell Git about your signing key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+5. [Sign commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
+6. [Sign tags](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-tags)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-On the remote system, add the contents of your public key file (for example, `~/id_rsa.pub`) to a new line in your `~/.ssh/authorized_keys` file; on the command line, enter:\
-`$ cat` /home/ec2-user/.ssh/id\_rsa.pub. `>> ~/.ssh/authorized_keys`
-
-You may want to check the contents of \~/.ssh/authorized\_keys to make sure your public key was added properly; on the command line, enter:\
-`$ more ~/.ssh/authorized_keys`[\
-](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)\
-Then, set-up SSH from your EC2 instance, following the guide on the last link of the sources list, bellow.
-
-Sources:\
-[Creating/Converting/Move SSH keys to the right place\
-](https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?pageId=297601060#id-6.C9,SSH\&PhpStorm-Configurationfileforscripts)[Generate an hardware security key to authenticate to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)\
-[Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)\
+Source:\
+[Creating/Converting/Move SSH keys to the right place](https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?pageId=297601060#id-6.C9,SSH\&PhpStorm-Configurationfileforscripts)\
+\
 
 
 **GIT aliases**\
