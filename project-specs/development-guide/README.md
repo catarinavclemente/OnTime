@@ -6,9 +6,9 @@
 **Good to know:** Before following the instructions provided on toolkit, be sure to have composer installed in your environment
 {% endhint %}
 
-### AWS Cloud 9
+### Creating the AWS Cloud 9 environment
 
-Request a new Cloud 9 instance (at this moment you should email Giancarlo Di NATALE)\
+Request a new Cloud 9 instance\
 Create your Cloud 9 instance:
 
 * Name your environment with your IAM username.
@@ -26,6 +26,8 @@ After creating the environment, it is compulsory to initialise it with the scrip
 You need to have the following software installed on your local development environment: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/)
 {% endhint %}
 
+Source: [https://webgate.ec.europa.eu/fpfis/wikis/display/MULTISITE/AWS+Cloud9](https://webgate.ec.europa.eu/fpfis/wikis/display/MULTISITE/AWS+Cloud9)
+
 ### Git, Docker and Docker Compose <a href="#id-4.configurec9-dockerprofile" id="id-4.configurec9-dockerprofile"></a>
 
 #### Configure Docker profile <a href="#id-4.configurec9-dockerprofile" id="id-4.configurec9-dockerprofile"></a>
@@ -41,41 +43,15 @@ php composer-setup.php --version=1.9.0
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
-#### Docker Compose
+Source: [https://webgate.ec.europa.eu/fpfis/wikis/display/MULTISITE/4.+Configure+C9](https://webgate.ec.europa.eu/fpfis/wikis/display/MULTISITE/4.+Configure+C9)
 
-Run this command to download the current stable release of Docker Compose: \
-&#x20;`$ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/`
 
-Apply executable permissions to the binary:\
-`$ sudo chmod +x /usr/local/bin/docker-compose`
-
-If the command docker-compose fails after installation, check your path. You can also create a symbolic link to /usr/bin or any other directory in your path.
-
-```
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-$ sudo chmod +x /usr/local/bin/docker-compose
-```
-
-**Using Docker Compose**
-
-To run the containerised environment, you can follow these steps to set it up, using Docker Compose.
-
-Run: `docker-compose up -d`
-
-This will set up and run the environment. After spawning, please follow the set of commands specified in the documentation of a given component, site or a project. Usually the next step is to execute Composer script to download and set up dependencies.\
-`docker-compose exec web ./vendor/bin/run drupal:site-install`
-
-Wait a few minutes and, finally, run:\
-`docker-compose exec web composer install`\
-\
-In order to tweak settings or adjust configuration of a specific container, please edit the `docker-compose.yml` file accordingly to your current needs.
 
 ### Setting up a project
 
 To install locally a project running Toolkit 4 you should run the following commands:
 
-Start by cloning GIT reference repo:\
-`git clone git@github.com:ec-europa/<repository-name>.git`
+Start by cloning GitLab dev repo:
 
 #### Setting up the environment
 
@@ -87,6 +63,7 @@ Check if composer.json has the correct requirements.\
 And then:
 
 ```
+docker-compose up -d
 docker-compose exec web composer install
 docker-compose exec web ./vendor/bin/run toolkit:build-dev
 ```
@@ -119,63 +96,7 @@ Finally, Git looks for configuration values in the configuration file in the Git
 
 Each of these “levels” (system, global, local) overwrites values in the previous level, so values in `.git/config` trump those in `[path]/etc/gitconfig`, for instance.\\
 
-## Collaborating
-
-On GitHub, create a fork from the EC repo.\
-ec-europa: _https://github.com/ec-europa/\<project-name_>-reference
-
-Add this repo as your origin branch.
-
-In addition to origin, it’s often convenient to have a connection to your teammates’ repositories. For example, if your co-worker maintain the same repository as you, from his own fork, you can add a connection as follows:
-
-```
-git remote add other_user dev.example.com/other_user_repo.git
-```
-
-you git@github.com:you/common\_repo.git (fetch)\
-you git@github.com:you/common\_repo.git (push)
-
-co\_worker git@github.com:co\_worker/common\_repo.git (fetch\
-coworker git@github.com:coworker/common\_repo.git (push)\_\
-\_\_\
-\_origin git@github.com:\_organization/common\_repo.git (fetch)\
-origin git@github.com:organization/common\_repo.git (push)
-
-It is good practice to keep the feature branch always up to date with [trunk](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development).\
-If your branch is recent, the first option is to use rebase.
-
-```
-git checkout feature/my-feature
-git rebase -i master
-```
-
-Sources: [https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development)
-
-### Deployment into ACC
-
-#### There are two options:
-
-* **Traditional approach**
-* **Using the auto-merge functionality**
-
-#### Traditional approach
-
-If we don't want to use the auto-merge we can proceed as the usual way, so **from our fork 's \<branch\_name> against reference's master branch.**
-
-![](../../.gitbook/assets/image2020-8-13\_15-57-34.png)
-
-**PS:** Once the pipeline have green lines, we need to **contact QA Team and request a code review** before lead ACC. If we pass this code review QA directly merge our PR into master and a new drone execution will be triggered to deploy in ACC.
-
-#### Auto-merge approach
-
-We can use this functionality naming our fork's branch **"deploy",** so in order to trigger a new drone we need to open a **new PR from our fork's deploy branch against reference's master branch** as following:
-
-![](../../.gitbook/assets/image2020-8-13\_15-37-0.png)
-
-Keep in mind that you can go straight to ACC but a QA review will be needed before lead PROD (unless you are hosted in a dedicated server, then deploy into PROD is under your own risk).
-
-\
-Source: [https://webgate.ec.europa.eu/fpfis/wikis/x/4YZMQ](https://webgate.ec.europa.eu/fpfis/wikis/x/4YZMQ)
+### Deployment in GitLab
 
 ### Routine
 
