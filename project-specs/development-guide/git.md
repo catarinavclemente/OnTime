@@ -77,27 +77,22 @@ Source:\
 \*\*\*\*`git stash` temporarily shelves (or _stashes_) changes you've made to your working copy so you can work on something else, and then come back and re-apply them later on. Stashing is handy if you need to quickly switch context and work on something else, but you're mid-way through a code change and aren't quite ready to commit.\
 [https://www.atlassian.com/git/tutorials/saving-changes/git-stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
 
-#### Collaborating (WIP)
 
-On GitHub, create a fork from the EC repo.\
-ec-europa: _https://github.com/ec-europa/\<project-name_>-reference
 
-Add this repo as your origin branch.
+## GIT remote
 
-In addition to origin, it’s often convenient to have a connection to your teammates’ repositories. For example, if your co-worker maintain the same repository as you, from his own fork, you can add a connection as follows:
+Clone your fork or set your origin to be your fork
 
+<pre class="language-bash"><code class="lang-bash"><strong>git remote set-url origin &#x3C;NEW_GIT_URL_HERE>
+</strong></code></pre>
+
+Create upstream to the reference branch
+
+```shell
+git remote add upstream https://github.com/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git
 ```
-git remote add other_user dev.example.com/other_user_repo.git
-```
 
-you git@github.com:you/common\_repo.git (fetch)\
-you git@github.com:you/common\_repo.git (push)
 
-co\_worker git@github.com:co\_worker/common\_repo.git (fetch\
-coworker git@github.com:coworker/common\_repo.git (push)\_\
-\_\_\
-upstream git@github.com:\_organization/common\_repo.git (fetch)\
-upstream git@github.com:organization/common\_repo.git (push)
 
 It is good practice to keep the feature branch always up to date with [trunk](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development).\
 If your branch is recent, the first option is to use rebase.
