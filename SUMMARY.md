@@ -26,7 +26,8 @@
   * [Content management strategies](project-specs/further-topics/content-management-strategies.md)
   * [Permissions](project-specs/further-topics/permissions.md)
   * [TIG](project-specs/further-topics/tig.md)
-  * [Config \_split](project-specs/further-topics/config-\_split.md)
+  * [Config \_split](project-specs/further-topics/config-_split.md)
+  * [Updates](project-specs/further-topics/updates.md)
 * [ATLAS CMS](project-specs/atlas-cms.md)
 
 ## Group 1
