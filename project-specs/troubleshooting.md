@@ -1,6 +1,8 @@
 # 🐞 Troubleshooting
 
+## <mark style="color:red;">No space left on device when using docker-compose</mark> <a href="#id-73b0" id="id-73b0"></a>
 
+[https://medium.com/@wlarch/no-space-left-on-device-when-using-docker-compose-why-c4a2c783c6f6](https://medium.com/@wlarch/no-space-left-on-device-when-using-docker-compose-why-c4a2c783c6f6)
 
 #### <mark style="color:red;">Failed loading /usr/lib64/php/modules/xdebug.so: /usr/lib64/php/modules/xdebug.so: undefined symbol: gc\_globals</mark>
 
