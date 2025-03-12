@@ -12,15 +12,21 @@ Request a new Cloud 9 instance\
 Create your Cloud 9 instance:
 
 * Name your environment with your IAM username.
-* Instance type is limited : "t3.medium"
+* Instance type is limited : "t3.large"
 * Your environment must be created in "eu-west-1" region (Ireland)
-* Platform must be "Amazon Linux 2"
+* Platform must be "Ubuntu Server 22.04 LTS"
 * Be careful, "m4.medium" is listed, but not available, for "medium" instance type you have to select "Other instance type"
 
 #### Initialize
 
 After creating the environment, it is compulsory to initialise it with the script provided by DevOps:\
-`aws s3 cp s3://c9-install-scripts/install-salt.sh - | bash`
+`aws s3 cp s3://c9-install-scripts/install-salt-ubuntu.sh - | bash`\
+`sudo salt-call state.apply profiles.docker`\
+\
+If the second command doesn't work,&#x20;
+
+| `sudo pip install docker-compose` |
+| --------------------------------- |
 
 {% hint style="info" %}
 You need to have the following software installed on your local development environment: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/)
