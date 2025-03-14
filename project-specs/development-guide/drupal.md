@@ -29,3 +29,5 @@ This will set up and run the environment. After spawning, please follow the set 
 
 **When > 1 environment**
 
+**df -h -** The ‘df‘ command stands for “**disk filesystem**“, it is used to get a full summary of available and used disk space usage of the file system on the Linux system.\
+Using ‘`-h`‘ parameter with (df -h) will show the file system disk space statistics in “**human-readable**” format, which means it gives the details in bytes, megabytes, and gigabytes.
