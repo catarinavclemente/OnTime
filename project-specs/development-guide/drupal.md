@@ -65,6 +65,12 @@ This will remove:
 
 \
 \
-**docker network prune -a** - Remove all custom networks not used by at least one container.
-
+**docker network prune -a** - Remove all custom networks not used by at least one container.\
 \
+**dc up -d**
+
+dcweb composer install\
+\
+dcweb ./vendor/bin/run toolkit:build-dev\
+\
+dcweb ./vendor/bin/run toolkit:download-dump\
