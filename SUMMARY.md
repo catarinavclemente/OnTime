@@ -33,7 +33,3 @@
 ## Group 1
 
 * [Gitbook](group-1/gitbook.md)
-
-***
-
-* [react](page-1.md)
