@@ -9,6 +9,9 @@ Start by making sure you have the correct access rights to the remote GitHub rep
 Then, clone the GIT reference repo:\
 `$ git clone git@github.com:ec-europa/<repository-name>.git`
 
+Username and Passord for **Git** repo:\
+Edit profile > Access tokens
+
 **Add the 'VIRTUAL\_HOST' variable to your '.env.dist' file.**\
 VIRTUAL\_HOST=[http://web:8080/web](http://web:8080/web)
 
@@ -23,3 +26,6 @@ This will set up and run the environment. After spawning, please follow the set 
 **Create a docker-compose.override** file to add settings for existent services (ASDA credentials for web service) or to add entirely new services. **This file is never committed to the repository.**\
 \
 [https://github.com/ec-europa/just-ejustice-reference#14-installing-the-project](https://github.com/ec-europa/just-ejustice-reference#14-installing-the-project)
+
+**When > 1 environment**
+
