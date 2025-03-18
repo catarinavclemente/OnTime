@@ -1,5 +1,16 @@
 # Theme
 
+**Compile SCSS**\
+cd lib/themes/theme\_name
+
+check npm -v
+
+if npm is not installed, please run 'npm install'\
+and then, 'npm run build'\
+\
+To check all available commands, check inside the theme, the **package.json** file
+
+&#x20;\
 dcdrupal site:mode dev
 
 Drush commands
@@ -14,8 +25,6 @@ theme-set-default   => dc exec web ./vendor/bin/drush config-set system.theme de
 theme-set-admin     => dc exec web ./vendor/bin/drush config-set system.theme admin [theme] 
 theme-status        => dc exec web ./vendor/bin/drush status theme
 ```
-
-<mark style="color:orange;">**Config:**</mark>\ <mark style="color:orange;">**Set default theme in ejp\_profile/config/system.theme.yml**</mark>
 
 ### TWIG debugging
 

@@ -1,5 +1,7 @@
 # GIT
 
+## [https://docs.github.com/en/authentication/managing-commit-signature-verification](https://docs.github.com/en/authentication/managing-commit-signature-verification)
+
 ## Git Forks and Upstreams: How-to and a cool tip
 
 [https://www.atlassian.com/git/tutorials/git-forks-and-upstreams](https://www.atlassian.com/git/tutorials/git-forks-and-upstreams)
