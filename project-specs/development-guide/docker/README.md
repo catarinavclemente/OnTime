@@ -11,3 +11,30 @@ You’ll be dropped back into your shell but the previously attached process wil
 [https://citnet.tech.ec.europa.eu/CITnet/confluence/display/DEVSECOPS/1.+Docker+HowTo](https://citnet.tech.ec.europa.eu/CITnet/confluence/display/DEVSECOPS/1.+Docker+HowTo)
 
 {% embed url="https://docs.docker.com/config/pruning/" %}
+
+{% code title="Stop all containers" %}
+```
+docker stop $(docker ps -a -q)
+```
+{% endcode %}
+
+{% code title="Remove all containers" %}
+```
+docker rm $(docker ps -a -q)
+```
+{% endcode %}
+
+`docker image prune -a -f`\
+`docker network prune -f`\
+`docker volume prune --all -f`
+
+To check:\
+docker info\
+\
+`docker system prune`\
+This will remove:
+
+* all stopped containers
+* all networks not used by at least one container
+* all dangling images
+* unused build cache
