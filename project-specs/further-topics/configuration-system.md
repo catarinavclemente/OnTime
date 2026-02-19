@@ -12,7 +12,7 @@ description: >-
 Configuration, in Drupal, is the data that the proper functioning of an application relies upon.\
 In versions prior to Drupal 8, data was simply stored in the database and the lack of consistency of Features or Ctools exportables meant big risks and headaches for Drupal developers.
 
-The [State API](https://api.drupal.org/api/drupal/core!core.api.php/group/state\_api) is a simple system for the storage of information about the system's state. The information is stored in the database and will be lost when the database is dropped or the site is re-installed from configuration. For storing data which needs to be edited by humans or needs to be shared between environments use the[ Configuration API](https://www.drupal.org/developing/api/8/configuration). In Drupal 7 and earlier the variables system was used to store state information.
+The [State API](https://api.drupal.org/api/drupal/core!core.api.php/group/state_api) is a simple system for the storage of information about the system's state. The information is stored in the database and will be lost when the database is dropped or the site is re-installed from configuration. For storing data which needs to be edited by humans or needs to be shared between environments use the[ Configuration API](https://www.drupal.org/developing/api/8/configuration). In Drupal 7 and earlier the variables system was used to store state information.
 
 State information is stored in the database and has the following characteristics:
 
@@ -44,8 +44,7 @@ You should check the configuration status regularly with the commands, bellow:\
 
 #### To export to sync directory
 
-`docker-compose exec web ./vendor/bin/drush cex`\
-
+`docker-compose exec web ./vendor/bin/drush cex`<br>
 
 #### To import from sync directory
 

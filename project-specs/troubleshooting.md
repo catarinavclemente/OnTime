@@ -28,4 +28,4 @@ If someone come across this issue it is due to DRUPAL\_SPARQL\_HOSTNAME in your 
 Add to .env:\
 DRUPAL\_SPARQL\_HOSTNAME=sparql DRUPAL\_SPARQL\_PORT=8890 DRUPAL\_ACCOUNT\_USERNAME=admin DRUPAL\_ACCOUNT\_PASSWORD=admin
 
-\
+<br>

@@ -7,7 +7,6 @@ Configure:\
 dcweb phpenmod xdebug
 
 **Disable**\
-dcweb phpdismod xdebug\
+dcweb phpdismod xdebug<br>
 
-
-[https://xdebug.org/docs/step\_debug](https://xdebug.org/docs/step\_debug)
+[https://xdebug.org/docs/step\_debug](https://xdebug.org/docs/step_debug)

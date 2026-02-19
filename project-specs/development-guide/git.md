@@ -69,8 +69,7 @@ To sign commits using SSH and have those commits verified on GitHub, follow thes
 
 Source:\
 [Creating/Converting/Move SSH keys to the right place](https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?pageId=297601060#id-6.C9,SSH\&PhpStorm-Configurationfileforscripts)\
-\
-
+<br>
 
 **GIT aliases**\
 [https://alblue.bandlem.com/2011/04/git-tip-of-week-aliases.html](https://alblue.bandlem.com/2011/04/git-tip-of-week-aliases.html)\

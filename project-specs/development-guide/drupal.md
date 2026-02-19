@@ -73,4 +73,4 @@ dcweb composer install\
 \
 dcweb ./vendor/bin/run toolkit:build-dev\
 \
-dcweb ./vendor/bin/run toolkit:download-dump\
+dcweb ./vendor/bin/run toolkit:download-dump<br>
