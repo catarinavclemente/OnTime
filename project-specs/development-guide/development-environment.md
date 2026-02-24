@@ -55,7 +55,7 @@ docker-compose exec -T web drush sql:query "SELECT \* FROM users WHERE uid = 1;"
 * Insert user into database (replace $HASH with the hash from step 3):
 
 \
-`docker-compose exec -T web drush sql:query "INSERT INTO users_field_data (uid, langcode, preferred_langcode, preferred_admin_langcode, name, pass, mail, timezone, status, created, changed, access, login, init, default_langcode) VALUES (1, 'en', 'en', 'en', 'catarina', '$HASH', 'duckfeatherscvc@duck.com', 'UTC', 1, UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), 0, 0, 'duckfeatherscvc@duck.com', 1); INSERT INTO users (uid, uuid, langcode) VALUES (1, UUID(), 'en');"`
+`docker-compose exec -T web drush sql:query "INSERT INTO users_field_data (uid, langcode, preferred_langcode, preferred_admin_langcode, name, pass, mail, timezone, status, created, changed, access, login, init, default_langcode) VALUES (1, 'en', 'en', 'en', 'catarina', '$HASH', 'catarinavclemente@gmail.com', 'UTC', 1, UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), 0, 0, 'duckfeatherscvc@duck.com', 1); INSERT INTO users (uid, uuid, langcode) VALUES (1, UUID(), 'en');"`
 
 • Verify user was created:\
 \
