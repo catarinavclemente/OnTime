@@ -18,10 +18,14 @@ description: Local configurations
 
 **Create a new user**
 
-`docker compose exec web drush user:create "Operational Tester" --mail="catarinavclemente@gmail.com" --password="123"`
+```
+docker compose exec web drush user:create "Operational Tester" --mail="catarinavclemente@gmail.com" --password="123"
+```
 
 **Update user 1**
 
-`docker compose exec web drush sqlq "SELECT uid, name, mail FROM users_field_data WHERE uid = 1"`
+```
+docker compose exec web drush eval "$user = \Drupal\user\Entity\User::load(1); $user->setUsername('textual'); $user->setPassword('123'); $user->save(); echo 'Done';"
+```
 
 [^1]: 
