@@ -28,3 +28,58 @@ Looking at the ECL select styles, there's just a 1px border and no box-shadow, s
 My `z-index: auto` fix should resolve this, but I'm wondering if I should also add `pointer-events: none` to the icon to prevent any click interception issues now that the select itself won't have the elevated z-index. Let me verify this approach handles both the visual stacking problem and maintains proper interaction behavior.
 
 Analyzing...<br>
+
+\
+Let me investigate the complex-filter-box structure and how the operator select is positioned to understand the overlap issue better.
+
+**grep -rn 'complex-filter-box' lib/themes/emn\_theme/styles/ --include="\*.scss"**
+
+*
+*
+
+**grep -rn 'complex-filter-box' lib/ web/modules/ web/themes/ --include="\*.css" --include="\*.scss" --include="\*.js" -l 2>/dev/null | head -20**
+
+*
+*
+
+cd /Users/catarina/REACT/just-ec-react-dev && python3 -c "\
+with open('web/themes/contrib/oe\_theme/dist/ec/styles/ecl-ec.css') as f:\
+css = f.read()\
+blocks = css.split('}')\
+for b in blocks:\
+if 'ecl-select\_\_icon' in b and ('pointer' in b or 'z-index' in b or 'position' in b):\
+print(b.strip() + '}')\
+print('---')\
+"
+
+*
+*
+
+cd /Users/catarina/REACT/just-ec-react-dev && python3 -c "\
+with open('web/themes/contrib/oe\_theme/dist/ec/styles/ecl-ec.css') as f:\
+css = f.read()\
+blocks = css.split('}')\
+for b in blocks:\
+if 'ecl-select\_\_container' in b:\
+print(b.strip() + '}')\
+print('---')\
+"
+
+*
+*
+
+Now I see the full picture. The `.ecl-select__container` has `position: relative` and the icon has `position: absolute; z-index: 0`. The `z-index: 1` on `.ecl-select` keeps the select above the icon. Simply setting `z-index: auto` could let the icon overlay the select and block clicks. Let me refine the fix:
+
+Read [select.html.twig](https://vscode-file/vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-browser/workbench/workbench.html), lines 170 to 242
+
+The icon div is a purely decorative element (just shows an arrow icon). It doesn't have any click handlers. The `<select>` element itself extends under the icon area (via padding-right/padding-inline-end to leave space for the icon). So the select should still receive clicks even if the icon is painted above it, because the select extends behind the icon.
+
+Actually, let me re-read the ECL rule: `.ecl-select__icon` has `position: absolute; right: 0; top: 0; width: 2.75rem; height: 100%; z-index: 0`. The icon div sits absolutely positioned over the right side of the select.
+
+The select has padding on the right side to visually accommodate the icon, but since the icon is absolutely positioned with a z-index of 0 and sits on top of the select element, it would normally intercept clicks in that area. However, native select elements in browsers have special handling that might bypass this layering issue.
+
+To ensure the icon never blocks clicks, I could either set `pointer-events: none` on the icon, or give it a negative z-index so it renders beneath the select while remaining visible through the select's transparent padding area. Let me think through whether the select actually has a background that would hide the icon if it's positioned below. The stacking context is getting tangled here. I think the cleanest solution is to reset the select's z-index to auto and disable pointer events on the icon so it doesn't intercept clicks. I'm writing out the SCSS fix with a comment explaining why we need to neutralize ECL's z-index behavior.
+
+Actually, let me reconsider the root cause—it might not be the select's z-index at all, but rather how the filter box creates its own stacking context when opened. The real issue is probably between different filter box instances—when one opens and drops down with absolute positioning, it can overlap the next box's header. The operator select the user mentioned is just a sibling within a single fieldgroup, so I think I've been overcomplicating this. Let me strengthen the fix to handle the stacking more robustly.
+
+Refining the CSS approach...
