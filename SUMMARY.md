@@ -34,3 +34,7 @@
 ## Group 1
 
 * [Gitbook](group-1/gitbook.md)
+
+***
+
+* [Debugging](debugging.md)
