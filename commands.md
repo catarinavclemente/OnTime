@@ -15,16 +15,24 @@ find . -name "*.js"
 source ./.bash-aliases
 ```
 
-**User 1**
+**User 1**<br>
+
+```
+docker-compose exec web bash
+```
 
 ```
 drush sqlq "SELECT uid, name FROM users_field_data WHERE uid = 1;"
 ```
 
 ```
-dcdrush sqlq "UPDATE users_field_data SET name = 'admin-catarina', mail = 'catarinavclemente@gmail.com' WHERE uid = 1;"
+drush sqlq "UPDATE users_field_data SET name = 'admin-catarina', mail = 'catarinavclemente@gmail.com' WHERE uid = 1;"
 ```
 
 ```
-dcdrush user:password admin-catarina '123'
+drush user:password admin-catarina '123'
+```
+
+```
+drush user:unblock admin-catarina
 ```
