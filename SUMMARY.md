@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Project Help](README.md)
+* [Commands](commands.md)
 
 ## Project specs
 
@@ -18,7 +19,8 @@
   * [Xdebug](project-specs/development-guide/xdebug.md)
 * [Theme](project-specs/theme/README.md)
   * [Theme requirements](project-specs/design-system.md)
-  * [NPM](project-specs/theme/npm.md)
+  * [Debugging](project-specs/theme/debugging.md)
+  * [SASS Compile](project-specs/theme/sass-compile.md)
 * [🐞 Troubleshooting](project-specs/troubleshooting.md)
 * [Further topics](project-specs/further-topics/README.md)
   * [Deployments](project-specs/further-topics/deployments.md)
@@ -34,7 +36,3 @@
 ## Group 1
 
 * [Gitbook](group-1/gitbook.md)
-
-***
-
-* [Debugging](debugging.md)

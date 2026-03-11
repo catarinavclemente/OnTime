@@ -1,13 +1,5 @@
 # Theme
 
-**Compile SCSS**\
-cd lib/themes/theme\_name
-
-check npm -v
-
-if npm is not installed, please run 'npm install'\
-and then, 'npm run build'\
-\
 To check all available commands, check inside the theme, the **package.json** file
 
 &#x20;\
