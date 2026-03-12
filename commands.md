@@ -26,13 +26,13 @@ drush sqlq "SELECT uid, name FROM users_field_data WHERE uid = 1;"
 ```
 
 ```
-drush sqlq "UPDATE users_field_data SET name = 'admin-catarina', mail = 'catarinavclemente@gmail.com' WHERE uid = 1;"
+drush sqlq "UPDATE users_field_data SET name = 'catarina', mail = 'catarinavclemente@gmail.com' WHERE uid = 1;"
 ```
 
 ```
-drush user:password admin-catarina '123'
+drush user:password admin-catarina '[pwd]'
 ```
 
 ```
-drush user:unblock admin-catarina
+drush user:unblock catarina
 ```
