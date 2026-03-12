@@ -12,7 +12,7 @@ find . -name "*.js"
 **Source alias**
 
 ```
-source ./.bash-aliases
+source bash-aliases
 ```
 
 **User 1**<br>
@@ -30,7 +30,7 @@ drush sqlq "UPDATE users_field_data SET name = 'catarina', mail = 'catarinavclem
 ```
 
 ```
-drush user:password admin-catarina '[pwd]'
+drush user:password catarina '[pwd]'
 ```
 
 ```
