@@ -12,7 +12,7 @@ find . -name "*.js"
 **Source alias**
 
 ```
-source bash-aliases
+source .bash-aliases
 ```
 
 **User 1**<br>
