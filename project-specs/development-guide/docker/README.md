@@ -1,5 +1,23 @@
 # Docker
 
+### Change project <a href="#detaching-without-stopping" id="detaching-without-stopping"></a>
+
+Stop and remove all containers from your current project:\
+docker-compose down\
+or\
+docker stop $(docker ps -aq) && docker rm $(docker ps -aq)
+
+Remove any unused images if you want a clean slate:\
+docker image prune -a
+
+Switch to the directory of the other project.
+
+Start the other project's containers:\
+docker-compose up -d\
+(or use the project's specific Docker commands)
+
+Make sure your .env and docker-compose files are configured for the new project.
+
 ### Detaching Without Stopping <a href="#detaching-without-stopping" id="detaching-without-stopping"></a>
 
 Docker supports a keyboard combination to gracefully detach from a container. Press Ctrl-P, followed by Ctrl-Q, to detach from your connection.
