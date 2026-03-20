@@ -5,10 +5,10 @@
 
 ## Project specs
 
+* [Aliases](project-specs/aliases.md)
 * [Infrastructure](project-specs/project-settings.md)
 * [Installation](project-specs/development-guide/README.md)
   * [Drupal](project-specs/development-guide/drupal.md)
-    * [Creating aliases](project-specs/development-guide/drupal/creating-aliases.md)
     * [Development environment](project-specs/development-guide/development-environment.md)
   * [Docker](project-specs/development-guide/docker/README.md)
     * [Docker-compose](project-specs/development-guide/docker/docker-compose.md)
