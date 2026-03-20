@@ -36,3 +36,7 @@
 ## Group 1
 
 * [Gitbook](group-1/gitbook.md)
+
+***
+
+* [Content Structure](content-structure.md)
