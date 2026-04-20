@@ -1,4 +1,12 @@
+---
+description: NextCloud
+---
+
 # Database
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+#### ![](../../.gitbook/assets/image.png)
 
 #### Create a database backup (dump)
 
