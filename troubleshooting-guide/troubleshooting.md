@@ -1,5 +1,9 @@
 # 🐞 Troubleshooting
 
+UnexpectedValueException: The stream or file "filename.log" could not be opened in append mode: Failed to open stream: Permission denied
+
+`docker compose exec -T web sh -lc "chown -R www-data:www-data /var/log/drupal && find /var/log/drupal -type d -exec chmod 775 {} ; && find /var/log/drupal -type f -exec chmod 664 {} ;"`
+
 ## <mark style="color:red;">No space left on device when using docker-compose</mark> <a href="#id-73b0" id="id-73b0"></a>
 
 [https://medium.com/@wlarch/no-space-left-on-device-when-using-docker-compose-why-c4a2c783c6f6](https://medium.com/@wlarch/no-space-left-on-device-when-using-docker-compose-why-c4a2c783c6f6)
