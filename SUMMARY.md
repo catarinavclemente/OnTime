@@ -27,6 +27,7 @@
 
 * [🐞 Troubleshooting](troubleshooting-guide/troubleshooting.md)
 * [Further topics](troubleshooting-guide/further-topics/README.md)
+  * [Pre-production release situation](troubleshooting-guide/further-topics/pre-production-release-situation.md)
   * [Deployments](troubleshooting-guide/further-topics/deployments.md)
   * [Configuration system](troubleshooting-guide/further-topics/configuration-system.md)
   * [Content management strategies](troubleshooting-guide/further-topics/content-management-strategies.md)
